@@ -2,6 +2,10 @@ const express = require('express');
 const app = express(); // creates an instance of an express application
 const routes = require('./routes');
 const nunjucks = require('nunjucks');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
